@@ -133,6 +133,46 @@
             </div>
         </div>
     </section>
+
+    <!-- Section avis  -->
+    <section id="Avis" class="page-section">
+        <div class="container">
+            <div class="section-title text-center">
+                <h2>Laissez un avis</h2>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <form action="ajouter-avis.php" method="POST" class="mb-4">
+                        <div class="mb-3">
+                            <input type="text" class="form-control" name="nom" placeholder="Votre nom" required>
+                        </div>
+                        <div class="mb-3">
+                            <textarea class="form-control" name="message" placeholder="Votre avis" rows="6" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Envoyer</button>
+                    </form>
+
+                    <h3 class="mt-5 mb-3">Avis des clients</h3>
+                    <div id="liste-avis"></div>
+
+                    <script>
+                        fetch('avis.php')
+                            .then(res => res.json())
+                            .then(data => {
+                                const container = document.getElementById('liste-avis');
+                                data.forEach(avis => {
+                                    const div = document.createElement('div');
+                                    div.className = "avis border rounded p-3 mb-3 shadow-sm";
+                                    const date = new Date(avis.date_creation).toLocaleDateString('fr-FR');
+                                    div.innerHTML = `<strong>${avis.nom}</strong> <em>(${date})</em><p>${avis.message}</p>`;
+                                    container.appendChild(div);
+                                });
+                            });
+                    </script>
+                </div>
+            </div>
+        </div>
+    </section>
 </body>
 
 <!-- Footer -->
