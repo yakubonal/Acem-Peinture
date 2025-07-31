@@ -199,19 +199,54 @@
                             const pagination = document.getElementById('pagination');
                             pagination.innerHTML = '';
 
-                            for (let i = 1; i <= totalPages; i++) {
+                            const createPageItem = (num, isActive = false) => {
                                 const li = document.createElement('li');
-                                li.className = `page-item ${i === pageActuelle ? 'active' : ''}`;
+                                li.className = `page-item${isActive ? ' active' : ''}`;
                                 const btn = document.createElement('button');
                                 btn.className = 'page-link';
-                                btn.textContent = i;
+                                btn.textContent = num;
                                 btn.addEventListener('click', () => {
-                                    pageActuelle = i;
-                                    afficherPage(i);
+                                    pageActuelle = num;
+                                    afficherPage(pageActuelle);
                                     afficherPagination();
                                 });
                                 li.appendChild(btn);
-                                pagination.appendChild(li);
+                                return li;
+                            };
+
+                            const createEllipsis = () => {
+                                const li = document.createElement('li');
+                                li.className = 'page-item disabled';
+                                li.innerHTML = `<span class="page-link">…</span>`;
+                                return li;
+                            };
+
+                            if (totalPages <= 7) {
+                                // Affiche toutes les pages si peu nombreuses
+                                for (let i = 1; i <= totalPages; i++) {
+                                    pagination.appendChild(createPageItem(i, i === pageActuelle));
+                                }
+                            } else {
+                                // Toujours afficher la 1ère page
+                                pagination.appendChild(createPageItem(1, pageActuelle === 1));
+
+                                let startPage = Math.max(2, pageActuelle - 2);
+                                let endPage = Math.min(totalPages - 1, pageActuelle + 2);
+
+                                if (startPage > 2) {
+                                    pagination.appendChild(createEllipsis());
+                                }
+
+                                for (let i = startPage; i <= endPage; i++) {
+                                    pagination.appendChild(createPageItem(i, i === pageActuelle));
+                                }
+
+                                if (endPage < totalPages - 1) {
+                                    pagination.appendChild(createEllipsis());
+                                }
+
+                                // Toujours afficher la dernière page
+                                pagination.appendChild(createPageItem(totalPages, pageActuelle === totalPages));
                             }
                         }
 
