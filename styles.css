@@ -112,14 +112,14 @@ body {
     margin-bottom: 20px;
 }
 
-
-#Avis .avis {
-    background-color: #f9f9f9;
-    border-left: 4px solid #007bff;
+.avis {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .avis p {
-    white-space: pre-line;
+    margin-bottom: 0;
+    margin-top: 0;
 }
 
 /* Footer */
