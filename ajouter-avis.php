@@ -1,5 +1,5 @@
 <?php
-require 'db.php';
+require 'config/db.php';
 
 // Anti-spam honeypot
 if (!empty($_POST['website'])) {

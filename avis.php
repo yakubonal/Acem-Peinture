@@ -1,5 +1,5 @@
 <?php
-require 'db.php';
+require 'config/db.php';
 
 $stmt = $pdo->query("SELECT * FROM avis ORDER BY date_creation DESC");
 $avis = $stmt->fetchAll(PDO::FETCH_ASSOC);
