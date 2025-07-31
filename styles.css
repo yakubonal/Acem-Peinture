@@ -18,7 +18,7 @@ body {
 /* Barre de navigation */
 .navbar {
     background-color: var(--primary-color) !important;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .navbar-brand {
@@ -97,7 +97,7 @@ body {
     border-radius: 10px;
     padding: 30px;
     text-align: center;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s;
     height: 100%;
 }
@@ -146,7 +146,7 @@ footer {
     .hero-section h1 {
         font-size: 2.5rem;
     }
-    
+
     .hero-section p {
         font-size: 1.1rem;
     }

@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bunyamin ONAL - Peintre en Bâtiment</title>
-    <meta name="description" content="Peintre en bâtiment professionnel. Peinture intérieure, extérieure, rénovation. Devis gratuit.">
-    
+    <meta name="description"
+        content="Peintre en bâtiment professionnel. Peinture intérieure, extérieure, rénovation. Devis gratuit.">
+
     <!-- Bootstrap CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
     <!-- CSS -->
@@ -62,13 +64,15 @@
             </div>
             <div class="row align-items-center">
                 <div class="col-lg-6">
-                    <img src="https://via.placeholder.com/500x400/2c3e50/ffffff?text=Photo+Profil" 
-                         class="img-fluid rounded" alt="Bunyamin ONAL">
+                    <img src="https://via.placeholder.com/500x400/2c3e50/ffffff?text=Photo+Profil"
+                        class="img-fluid rounded" alt="Bunyamin ONAL">
                 </div>
                 <div class="col-lg-6">
                     <h3>Bunyamin ONAL</h3>
                     <p class="lead">Artisan peintre depuis plus de 17 ans</p>
-                    <p>Passionné par mon métier, je vous accompagne dans tous vos projets de peinture et de rénovation. Mon expertise et mon savoir-faire garantissent des finitions impeccables pour votre intérieur comme pour votre extérieur.</p>
+                    <p>Passionné par mon métier, je vous accompagne dans tous vos projets de peinture et de rénovation.
+                        Mon expertise et mon savoir-faire garantissent des finitions impeccables pour votre intérieur
+                        comme pour votre extérieur.</p>
                     <ul class="list-unstyled">
                         <li><i class="fas fa-check text-success me-2"></i>17 ans d'expérience</li>
                         <li><i class="fas fa-check text-success me-2"></i>Artisan certifié</li>
@@ -98,7 +102,8 @@
                     <div class="service-card">
                         <i class="fas fa-building"></i>
                         <h4>Peinture Extérieure</h4>
-                        <p>Ravalement de façades, peinture de volets, portails. Protection et embellissement de votre bien.</p>
+                        <p>Ravalement de façades, peinture de volets, portails. Protection et embellissement de votre
+                            bien.</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 mb-4">
@@ -146,7 +151,8 @@
                             <input type="text" class="form-control" name="nom" placeholder="Votre nom" required>
                         </div>
                         <div class="mb-3">
-                            <textarea class="form-control" name="message" placeholder="Votre avis" rows="6" required></textarea>
+                            <textarea class="form-control" name="message" placeholder="Votre avis" rows="6"
+                                required></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary">Envoyer</button>
                         <div id="message-confirmation" class="mt-3 text-success"></div>
@@ -260,29 +266,29 @@
                                 method: 'POST',
                                 body: formData
                             })
-                            .then(res => {
-                                if (res.ok) {
-                                    document.getElementById('message-confirmation').textContent = "Merci pour votre avis !";
-                                    form.reset();
+                                .then(res => {
+                                    if (res.ok) {
+                                        document.getElementById('message-confirmation').textContent = "Merci pour votre avis !";
+                                        form.reset();
 
-                                    // Ajout en local
-                                    const nouvelAvis = {
-                                        nom: formData.get("nom"),
-                                        message: formData.get("message"),
-                                        date_creation: new Date()
-                                    };
+                                        // Ajout en local
+                                        const nouvelAvis = {
+                                            nom: formData.get("nom"),
+                                            message: formData.get("message"),
+                                            date_creation: new Date()
+                                        };
 
-                                    avisData.unshift(nouvelAvis);
-                                    pageActuelle = 1;
-                                    afficherPage(pageActuelle);
-                                    afficherPagination();
-                                } else {
-                                    document.getElementById('message-confirmation').textContent = "Erreur lors de l'envoi.";
-                                }
-                            })
-                            .catch(() => {
-                                document.getElementById('message-confirmation').textContent = "Erreur réseau.";
-                            });
+                                        avisData.unshift(nouvelAvis);
+                                        pageActuelle = 1;
+                                        afficherPage(pageActuelle);
+                                        afficherPagination();
+                                    } else {
+                                        document.getElementById('message-confirmation').textContent = "Erreur lors de l'envoi.";
+                                    }
+                                })
+                                .catch(() => {
+                                    document.getElementById('message-confirmation').textContent = "Erreur réseau.";
+                                });
                         });
                     </script>
 
@@ -312,7 +318,7 @@
             <div class="col-lg-4">
                 <h5>Contact</h5>
                 <p>
-                    <i class="fas fa-phone me-2"></i>  06 58 52 21 47<br>
+                    <i class="fas fa-phone me-2"></i> 06 58 52 21 47<br>
                     <i class="fas fa-envelope me-2"></i> acembunyas@outlook.fr
                 </p>
             </div>
@@ -323,4 +329,5 @@
         </div>
     </div>
 </footer>
+
 </html>
